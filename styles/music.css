@@ -1,0 +1,184 @@
+/* 注释：全局变量定义，主要用于颜色控制 */
+:root {
+  --primary-color: #31c27c; /* 主要颜色，绿色 */
+}
+
+/* 注释：全局样式设置，包括页面边距、背景和字体 */
+body {
+  margin: 0; /* 去除页面默认边距 */
+  background: #f5f5f5; /* 页面背景颜色 */
+  font-family: Microsoft Yahei; /* 字体设置为Microsoft Yahei */
+  font-size: 14px; /* 字体大小为14ps */
+}
+
+/* 注释：超链接样式设置 */
+a {
+  text-decoration: none; /* 去除超链接下划线 */
+  color: #000; /* 超链接文字颜色为黑色 */
+}
+
+/* 注释：页面头部样式 */
+header {
+  height: 90px; /* 头部高度 */
+  background: white; /* 头部背景颜色 */
+  display: flex; /* 使用弹性布局 */
+  align-items: center; /* 垂直居中 */
+}
+
+/* 注释：头部内部容器和主要内容容器的样式 */
+.header-inner, main {
+   /* width: 1200px; */
+  padding: 20px; /* 内边距20px */
+  margin: auto; /* 居中对齐 */
+}
+
+/* 注释：标签列表样式 */
+.tag-list {
+  margin-top: 50px; /* 上边距 */
+  margin-bottom: 15px; /* 下边距15px */
+}
+
+/* 注释：标签项样式，包括内边距、右边距、文字颜色和文本修饰 */
+.tag-item {
+  display: inline-block; /* 内联块级元素显示 */
+  padding: 0 8px; /* 左右内边距 */
+  margin-right: 24px;/*右外边距*/
+  line-height: 24px; /* 行高 */
+  color: #000; /* 文字颜色为黑色 */
+  text-decoration: none; /* 去除文本修饰（下划线） */
+}
+
+/* 注释：激活状态的标签项样式 */
+.tag-active {
+  background: var(--primary-color); /* 使用全局主要颜色作为背景 */
+  color: white; /* 文字颜色为白色 */
+}
+
+/* 注释：鼠标悬停在标签项上的效果 */
+.tag-item:not(.tag-active):hover {
+  color: var(--primary-color); /* 文字颜色变为主要颜色 */
+}
+
+/* 注释：文本不换行样式 */
+.nowrap {
+  white-space: nowrap; /* 禁止文本换行 */
+  overflow: hidden; /* 隐藏溢出内容 */
+  text-overflow: ellipsis; /* 使用省略号表示溢出 */
+}
+
+/* 注释：专辑列表样式，使用网格布局 */
+.playlist {
+  display: grid; /* 使用网格布局 */
+  grid-template-columns: repeat(auto-fill, minmax(200px,1fr)); /* 自动填充列宽，最小宽度200px，剩余空间平均分配 */
+  gap: 45px 15px; /* 行列间隙 */
+  margin-bottom: 45px; /* 下边距 */
+}
+
+/* 注释：专辑封面容器样式，包括封面图片、遮罩和播放图标 */
+.cover-wrap {
+  display: flex; /* 使用弹性布局 */
+  position: relative; /* 相对定位 */
+  overflow: hidden; /* 隐藏溢出内容 */
+  width: 100%; /* 宽度100% */
+  margin-bottom: 15px; /* 下边距 */
+  align-items: center; /* 垂直居中 */
+  justify-content: center; /* 水平居中 */
+  cursor: pointer; /* 鼠标悬停变为手型 */
+}
+
+/* 注释：专辑封面图片样式，带有过渡效果 */
+.cover-img {
+  width: 100%; /* 图片宽度100% */
+  transition: all 0.75s; /* 所有属性变化动画效果，0.75秒 */
+}
+
+/* 注释：专辑封面遮罩样式，初始透明，鼠标悬停时半透明 */
+.cover-mask {
+  position: absolute; /* 绝对定位 */
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: #000; /* 背景颜色为黑色 */
+  opacity: 0; /* 初始透明 */
+  transition: all 0.5s; /* 所有属性变化动画效果，0.5秒 */
+}
+
+/* 注释：专辑播放图标样式，初始透明和缩小，鼠标悬停时显示和放大 */
+.cover-play {
+  position: absolute; /* 绝对定位 */
+  left: 50%;
+  top: 50%;
+  margin-left: -35px; /* 水平居中 */
+  margin-top: -35px; /* 垂直居中 */
+  opacity: 0; /* 初始透明 */
+  transform: scale(0.7); /* 初始缩小 */
+  transition: all 0.5s; /* 所有属性变化动画效果，0.5秒 */
+}
+
+/* 注释：鼠标悬停在专辑封面上的效果 */
+.cover-wrap:hover .cover-mask {
+  opacity: 0.2; /* 遮罩半透明 */
+}
+
+.cover-wrap:hover .cover-play {
+  opacity: 1; /* 播放图标显示 */
+  transform: scale(1); /* 播放图标放大 */
+}
+
+.cover-wrap:hover .cover-img {
+  transform: scale(1.07); /* 图片放大 */
+}
+
+/* 注释：专辑标题悬停时的颜色效果 */
+.album-title:hover {
+  color: var(--primary-color); /* 文字颜色变为主要颜色 */
+}
+
+/* 注释：专辑作者样式，灰色 */
+.album-author {
+  color: #999; /* 文字颜色为灰色 */
+  line-height: 1.6; /* 行高 */
+}
+
+/* 注释：专辑作者悬停时的颜色效果 */
+.album-author:hover {
+  color: var(--primary-color); /* 文字颜色变为主要颜色 */
+}
+
+/* 注释：专辑发布时间样式，灰色 */
+.album-time {
+  color: #999; /* 文字颜色为灰色 */
+}
+
+/* 注释：分页样式，居中对齐 */
+.page {
+  display: flex; /* 使用弹性布局 */
+  align-items: center; /* 垂直居中 */
+  justify-content: center; /* 水平居中 */
+}
+
+/* 注释：分页项样式，包括颜色和样式设置 */
+.page-item {
+  display: inline-block; /* 内联块级元素显示 */
+  color: #a2a2a2; /* 文字颜色为灰色 */
+  line-height: 50px; /* 行高 */
+  padding: 0 20px; /* 左右内边距 */
+  margin: 10px; /* 外边距 */
+  font-size: 16px; /* 字体大小 */
+}
+
+/* 注释：当前页和非更多链接的悬停效果 */
+.page-current, .page-item:not(.page-more):hover {
+  background: var(--primary-color); /* 使用主要颜色作为背景 */
+  color: white; /* 文字颜色为白色 */
+}
+
+/* 注释：页面底部样式，背景颜色为深灰色 */
+footer {
+  margin-top: 60px; /* 上边距 */
+  background: #333; /* 背景颜色为深灰色 */
+  height: 200px; /* 高度 */
+}
+
+

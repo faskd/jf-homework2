@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>表单</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: flex-start;
+        margin: 0;
+      }
+
+      h3 {
+        color: blue;
+        text-align: right; /* 文字提示右对齐 */
+        width: 30%; /* 调整标题宽度 */
+        padding-right: 20px; /* 增加右边距 */
+      }
+
+      form {
+        width: 50%; /* 调整表单宽度 */
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+      }
+
+      label {
+        display: flex; /* 将文字提示和文本框放在一行 */
+        align-items: center; /* 垂直居中 */
+        margin-bottom: 10px;
+        width: 50%;
+      }
+
+      label b {
+        width: 30%; /* 调整文字提示宽度 */
+        text-align: right; /* 文字提示右对齐 */
+        padding-right: 20px; /* 增加右边距 */
+      }
+
+      input[type="text"],
+      input[type="password"],
+      input[type="file"],
+      select {
+        width: 150px; /* 调整文本框宽度，与文字提示对齐 */
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      img {
+        max-width: 100%;
+        max-height: 150px;
+        margin-top: 20px;
+        border: 1px solid #ccc;
+
+        align-items: center; /* 垂直居中 */
+        margin-bottom: 10px;
+      }
+
+      .img {
+        vertical-align: middle;
+        width: 30px;
+        cursor: pointer;
+      }
+
+      .location-label {
+        display: flex; /* 将籍贯的文字提示和文本框放在一行 */
+        align-items: center; /* 垂直居中 */
+        width: 65%;
+      }
+
+      .location-label b {
+        width: 23%; /* 调整籍贯的文字提示宽度 */
+        text-align: right; /* 文字提示右对齐 */
+        padding-right: 20px; /* 增加右边距 */
+      }
+
+      .location-label select {
+        width: 16.5%; /* 调整籍贯的文本框宽度，与文字提示对齐 */
+      }
+
+      .intro-label {
+        display: flex; /* 将简介的文字提示和文本框放在一行 */
+        align-items: center; /* 垂直居中 */
+        width: 50%;
+      }
+
+      .intro-label b {
+        width: 30%; /* 调整简介的文字提示宽度 */
+        text-align: right; /* 文字提示右对齐 */
+        padding-right: 20px; /* 增加右边距 */
+      }
+
+      .intro-label textarea {
+        width: 60%; /* 调整简介的文本框宽度，与文字提示对齐 */
+      }
+
+      .hobbies-label {
+        display: flex; /* 将个人爱好的文字提示和复选框放在一行 */
+        align-items: center; /* 垂直居中 */
+        width: 60%;
+      }
+
+      .hobbies-label b {
+        width: 60%; /* 调整个人爱好的文字提示宽度 */
+        text-align: right; /* 文字提示右对齐 */
+        padding-right: 10px; /* 增加右边距 */
+      }
+
+      .hobbies-label label {
+        width: 58%; /* 调整复选框宽度，与文字提示对齐 */
+      }
+
+      input[type="submit"],
+      input[type="reset"] {
+        margin-left: 16.5%; /* 调整按钮位置 */
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      <h3>欢迎注册会员</h3>
+      <label>
+        <b>手机号码：</b>
+        <input type="text" name="phonenumber" placeholder="11位手机号码" />
+        <span style="color: red">必填</span>
+      </label>
+      <label>
+        <b>创建密码：</b>
+        <input type="password" name="pwd" maxlength="8" placeholder="8位密码" />
+        <span style="color: red">必填</span>
+      </label>
+      <label>
+        <b>注册邮箱：</b>
+        <input type="text" name="email" placeholder="例如:wustzz@sina.com" />
+        <span style="color: red">必填</span>
+      </label>
+      <label>
+        <b>验证码：</b>
+        <input type="text" name="captcha" />
+        <span id="capcha">4位验证码</span>
+        <img src="images/arrow_03.png" id="change_capcha" alt="" class="img" />
+      </label>
+      <label>
+        <b>性别：</b>
+        <input type="radio" name="sex" value="male" /> 男
+        <input type="radio" name="sex" value="female" /> 女
+      </label>
+      <label>
+        <b>生日：</b>
+        <input type="text" name="birthday" placeholder="年/月/日" />
+      </label>
+      <label>
+        <b>年龄：</b>
+        <input type="text" name="age" />
+      </label>
+      <div class="location-label">
+        <b>籍贯：</b>
+        <select name="province">
+          <option value="0">广东省</option>
+          <option value="1" selected="selected">湖北省</option>
+          <option value="2">湖南省</option>
+        </select>
+        <select name="city">
+          <option value="0">荆州</option>
+          <option value="1" selected="selected">武汉</option>
+          <option value="2">鄂州</option>
+        </select>
+      </div>
+      <br />
+      <label>
+        <b>个人学历：</b>
+        <select name="degree">
+          <option value="0">初中</option>
+          <option value="1">高中</option>
+          <option value="2" selected="selected">本科</option>
+          <option value="3">研究生</option>
+          <option value="4">博士</option>
+        </select>
+      </label>
+      <label>
+        <b>月薪：</b>
+        <input
+          type="range"
+          id="salary"
+          name="salary"
+          min="0.0"
+          max="100000.0"
+          step="1000"
+          value="50000.0"
+        />
+        <span id="msg"></span>
+      </label>
+      <div class="hobbies-label">
+        <b>个人爱好：</b>
+        <label><input type="checkbox" name="like" value="sing" />唱歌</label>
+        <label><input type="checkbox" name="like" value="run" />跑步</label>
+        <label><input type="checkbox" name="like" value="swim" />游泳</label>
+      </div>
+      <div>
+        <label
+          ><b>个人照片：</b>
+          <input
+            type="file"
+            id="imageInput"
+            accept="images/*"
+            onchange="previewImage()" />
+          <img
+            id="preview"
+            src="#"
+            class="imge"
+            alt="预览图片"
+            style="display: none"
+        /></label>
+      </div>
+
+      <label class="intro-label">
+        <b>简介：</b>
+        <textarea name="intro" cols="50" rows="10"></textarea>
+      </label>
+      <div>
+        <input type="submit" value="提交" />
+        <input type="reset" value="重填" />
+      </div>
+    </form>
+    <script>
+      let msg = document.getElementById("msg");
+      window.onload = function () {
+        msg.innerHTML = document.getElementById("salary").value;
+      };
+      document.getElementById("salary").onchange = function () {
+        msg.innerHTML = this.value;
+      };
+      //验证码：由大小写字母或数字组成
+      let codeStr =
+        "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+      //验证码长度
+      let length = 4;
+      let capcha = document.getElementById("capcha");
+      let change_capcha = document.getElementById("change_capcha");
+      // 用来生成一个[n,m]随机整数
+      function getRandom(n, m) {
+        return parseInt(Math.random() * (m - n + 1) + n);
+      }
+      // 将随机生成的整数下标对应的字母放入span中
+      function getCode() {
+        let str = "";
+        // 验证码有几位就循环几次
+        for (let i = 0; i < length; i++) {
+          let index = getRandom(0, 61);
+          str += codeStr.charAt(index);
+        }
+        capcha.innerHTML = str;
+      }
+      // 页面初始加载时就调用函数生成验证码，页面刷新也会执行
+      getCode();
+      // 点击刷新验证码
+      capcha.addEventListener("click", getCode);
+      change_capcha.addEventListener("click", getCode);
+      // JavaScript函数用于预览选中的图片
+      function previewImage() {
+        const imageInput = document.getElementById("imageInput");
+        const preview = document.getElementById("preview");
+
+        if (imageInput.files && imageInput.files[0]) {
+          const reader = new FileReader();
+
+          reader.onload = function (e) {
+            preview.src = e.target.result;
+            preview.style.display = "block";
+          };
+
+          reader.readAsDataURL(imageInput.files[0]);
+        }
+      }
+    </script>
+  </body>
+</html>
